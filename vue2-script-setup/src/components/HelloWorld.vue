@@ -2,6 +2,9 @@
   <div class="hello">
     <h1>{{ propsData.msg }}</h1>
     <button type="button" @click="increment">count is {{ state.count }}</button>
+    <div>refValue.value -> {{ refValue }}</div>
+    <div>refAddress.value -> {{ refAddress }}</div>
+    <div>refUser.value -> {{ refUser }}</div>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -10,108 +13,25 @@
       >.
     </p>
     <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
-          target="_blank"
-          rel="noopener"
-          >typescript</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from "@vue/composition-api";
+import { reactive, ref } from "@vue/composition-api";
 
 const propsData = defineProps({ msg: String });
 
-const state = reactive({ count: 0 });
+const state = reactive({ count: 0, address: '선택!' });
+const refValue = ref(0);
+const refAddress = ref('선택하라우..');
+const refUser = ref({ id: 0, name: '', age: 5 });
 
 const increment = (): void => {
   state.count++;
+  refValue.value++;
+  state.address = '수원!';
+  refAddress.value = '수원!!!';
+  refUser.value.name = '이준서수정함..';
 };
 </script>
 

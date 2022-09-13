@@ -29,6 +29,7 @@
     ]
   },
   "vueCompilerOptions": {
+    "target": 2,
     "experimentalCompatMode": 2
   },
   "include": [

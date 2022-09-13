@@ -32,7 +32,3 @@ const memberModule: Module<MemberProps, any> = {
 };
 
 export default memberModule;
-
-export function memberStore() {
-    return memberModule;
-}

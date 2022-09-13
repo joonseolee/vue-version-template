@@ -7,17 +7,8 @@
 
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
-import { mapState, mapGetters } from "vuex";
-import { memberStore } from '@/store/member';
 
 const message = "This is the message.";
-const { getName } = mapGetters('memberStore', ['getName']);
-debugger;
-console.log(`test -> ${getName()}`);
-
-// const storedName = store.getters.memberStore.getName();
-// console.log(`storedName -> ${storedName}`);
-// console.dir(storedName);
 </script>
 
 <style>
